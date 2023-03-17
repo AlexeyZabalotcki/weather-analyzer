@@ -1,0 +1,23 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: postgres
+  datasource:
+    username: postgres
+    password: password
+    url: jdbc:postgresql://postgres:5432/postgres
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true
+  flyway:
+    url: jdbc:postgresql://postgres:5432/postgres
+    user: "postgres"
+    password: "password"
+    schemas: public
+    locations: classpath:db/migration
