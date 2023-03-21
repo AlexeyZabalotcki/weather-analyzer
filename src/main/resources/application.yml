@@ -21,3 +21,9 @@ spring:
     password: "password"
     schemas: public
     locations: classpath:db/migration
+
+weather-analyzer:
+  base-url: "https://weatherapi-com.p.rapidapi.com"
+  api-key: "5414d765admsh872f20c838c676ep154b4djsnf1773d5372e6"
+  city: Minsk
+  fixedRate: 3600000

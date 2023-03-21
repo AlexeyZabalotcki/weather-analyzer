@@ -2,7 +2,6 @@ plugins {
     id 'java'
     id 'org.springframework.boot' version '2.7.9'
     id 'io.spring.dependency-management' version '1.1.0'
-    id 'org.flywaydb.flyway' version "9.8.1"
 }
 
 group = 'by.senla.zabalotcki'
@@ -26,17 +25,12 @@ dependencies {
     runtimeOnly 'org.postgresql:postgresql'
     annotationProcessor 'org.projectlombok:lombok'
     implementation 'org.flywaydb:flyway-core:9.4.0'
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'com.squareup.okhttp3:okhttp:4.9.3'
 }
 
 tasks.named('test') {
     useJUnitPlatform()
 }
 
-flyway {
-    url = 'jdbc:postgresql://postgres:5432/postgres'
-    user = 'postgres'
-    password = 'password'
-    driver = 'org.postgresql.Driver'
-    locations = ['classpath:db/migration']
-}
