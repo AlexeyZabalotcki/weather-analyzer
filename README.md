@@ -31,3 +31,4 @@ ___
       "to": "YYYY-MM-DD"
      }
   ```
+* Weather forecast is automatically updated every hour
