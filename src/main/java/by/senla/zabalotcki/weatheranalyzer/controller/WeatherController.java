@@ -24,13 +24,21 @@ public class WeatherController {
     }
 
     @GetMapping("/name/{city}")
-    public WeatherDto findByName(@PathVariable String city) {
-        return weatherService.findByLocationName(city);
+    public ResponseEntity<WeatherDto> findByName(@PathVariable String city) {
+        return ResponseEntity.ok(weatherService.findByLocationName(city));
     }
 
     @GetMapping("/find/{id}")
-    public WeatherDto findById(@PathVariable Long id) throws CityNotFoundException {
-        return weatherService.findById(id);
+    public ResponseEntity<WeatherDto> findById(@PathVariable Long id) {
+        WeatherDto weatherDto;
+        try {
+            weatherDto = weatherService.findById(id);
+        } catch (CityNotFoundException ex) {
+            ex.printStackTrace();
+            return new ResponseEntity("Check city id", HttpStatus.NOT_ACCEPTABLE);
+        }
+
+        return ResponseEntity.ok(weatherDto);
     }
 
     @GetMapping("/temp")
