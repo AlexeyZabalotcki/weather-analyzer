@@ -18,9 +18,9 @@ public class WeatherController {
 
     private final WeatherService weatherService;
 
-    @GetMapping("/")
+    @PostMapping("/")
     public void getWeather() throws IOException {
-        weatherService.createAndSaveWeather();
+        weatherService.responseProcessing();
     }
 
     @GetMapping("/name/{city}")

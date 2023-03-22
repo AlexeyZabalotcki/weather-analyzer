@@ -1,13 +1,16 @@
 package by.senla.zabalotcki.weatheranalyzer.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Data
 @Entity
 @Table(name = "current_weather")
+@Builder
+@RequiredArgsConstructor
+@AllArgsConstructor
 public class CurrentWeather {
 
     @Id

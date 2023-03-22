@@ -35,7 +35,7 @@ public class WeatherService {
 
     @Scheduled(fixedRateString = "${weather-analyzer.fixedRate}")
     @Transactional
-    public void createAndSaveWeather() throws IOException {
+    public void responseProcessing() throws IOException {
         Request request = getRequest();
         try (Response response = sendRequest(request)) {
             Weather weather = parseResponse(response);
